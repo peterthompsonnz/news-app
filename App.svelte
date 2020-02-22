@@ -44,6 +44,7 @@
     padding: 0 0.5em;
     height: 100vh;
     position: relative;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   footer {
@@ -59,7 +60,7 @@
 
   footer a {
     text-decoration: none;
-    color: crimson;
+    color: dodgerblue;
   }
 
   header {
@@ -76,15 +77,15 @@
   }
 
   h1 {
-    font-size: 2.5em;
-    color: crimson;
+    font-size: 2.25em;
+    color: dodgerblue;
     padding: 0;
     margin: 0;
     letter-spacing: 0.05em;
   }
 
   h2 {
-    font-size: 1.95em;
+    font-size: 1.75em;
     margin: 1em 0;
   }
 
@@ -97,7 +98,7 @@
   }
 
   .select-style select {
-    font-size: 95%;
+    font-size: 85%;
     padding: 5px 8px;
     width: 102%;
     border: none;
@@ -129,12 +130,13 @@
     padding: 0.25em 0.5em;
     border: 1px solid #666;
     border-radius: 5px;
-    background-color: #b60125;
+    background-color: dodgerblue;
     color: white;
   }
 
   .back-to-top-link:hover {
-    background-color: #fc3f65;
+    background-color: white;
+    color: dodgerblue;
   }
 </style>
 

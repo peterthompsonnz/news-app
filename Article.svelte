@@ -7,8 +7,7 @@
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.26);
     border-radius: 5px;
     margin-bottom: 1.25em;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    /* font-size: 1.15em; */
+    font-family: Arial, Helvetica, sans-serif;    
     line-height: 1.5;
     color: #222;
     background-color: #fcfcfc;
@@ -21,7 +20,7 @@
   .article a {
     text-decoration: none;
     cursor: pointer;
-    color: crimson;
+    color: dodgerblue;
     font-weight: 500;
   }
 </style>
