@@ -21,7 +21,13 @@
     text-decoration: none;
     cursor: pointer;
     color: dodgerblue;
-    font-weight: 500;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .article a:hover {    
+    color: dodgerblue;   
+    border-bottom-color: dodgerblue; 
+    border-bottom-style: dashed;
   }
 </style>
 
