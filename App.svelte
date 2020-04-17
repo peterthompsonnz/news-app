@@ -150,10 +150,13 @@
       <select id="feeds" value="Message" on:change={changeFeed}>
         <option value="Message">Select a Feed</option>
         <option value="New Zealand">New Zealand</option>
-        <option value="BBC">BBC News</option>
-        <option value="Al Jazeera">Al Jazeera</option>        
+        <option value="Australia">Australia</option>
+        <option value="UK">UK</option>
+        <option value="USA">USA</option>
+        <option value="BBC">BBC</option>
+        <option value="Singapore">Singapore</option>
         <option value="Reuters">Reuters</option>
-        <option value="National Geographic">National Geographic</option>        
+        <option value="National Geographic">National Geographic</option>
       </select>
     </label>
   </div>
