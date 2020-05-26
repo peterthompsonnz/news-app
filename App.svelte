@@ -19,17 +19,11 @@
   });
 
   function fetchFeedData(url) {
-  	const myHeaders = new Headers();
-    const myRequest = new Request(`${url}${apiKey}`, {
-	  method: 'GET',
-	  headers: myHeaders,
-	  mode: 'cors',
-	  cache: 'default',
-	  origin: null
-	});
-	
     loading = true;
-    fetch(myRequest)
+  	const proxyUrl = `https://cors-anywhere.herokuapp.com/${url}${apiKey}`; 	
+	const request = new Request(proxyUrl);
+    
+    fetch(request)
       .then(response => response.json())
       .then(data => {
         loading = false;
