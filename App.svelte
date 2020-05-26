@@ -6,7 +6,8 @@
   let loading = false;
   let feedName = "";
   let articles = null;
-  let favouriteSet = false;
+  let favouriteSet = false;  
+  
 
   onMount(() => {
     const favourite = window.localStorage.getItem("favourite");
@@ -18,8 +19,17 @@
   });
 
   function fetchFeedData(url) {
+  	const myHeaders = new Headers();
+    const myRequest = new Request(`${url}${apiKey}`, {
+	  method: 'GET',
+	  headers: myHeaders,
+	  mode: 'cors',
+	  cache: 'default',
+	  origin: null
+	});
+	
     loading = true;
-    fetch(`${url}${apiKey}`)
+    fetch(myRequest)
       .then(response => response.json())
       .then(data => {
         loading = false;
