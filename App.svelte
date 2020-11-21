@@ -6,8 +6,7 @@
   let loading = false;
   let feedName = "";
   let articles = null;
-  let favouriteSet = false;  
-  
+  let favouriteSet = false;
 
   onMount(() => {
     const favourite = window.localStorage.getItem("favourite");
@@ -20,16 +19,16 @@
 
   function fetchFeedData(url) {
     loading = true;
-  	const proxyUrl = `https://cors-anywhere.herokuapp.com/${url}${apiKey}`; 	
-	const request = new Request(proxyUrl);
-    
+    const proxyUrl = `https://cors-anywhere.herokuapp.com/${url}${apiKey}`;
+    const request = new Request(proxyUrl);
+
     fetch(request)
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         loading = false;
         articles = data.articles;
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   function changeFeed(evt) {
@@ -40,6 +39,49 @@
     window.localStorage.setItem("favourite", feedName);
   }
 </script>
+
+<header>
+  <h1 id="top">News Feeds</h1>
+</header>
+<main class="container">
+  <div class="select-style">
+    <label for="feeds">
+      <select id="feeds" value="Message" on:change={changeFeed}>
+        <option value="Message">Select a Feed</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="Australia">Australia</option>
+        <option value="UK">UK</option>
+        <option value="USA">USA</option>
+        <option value="BBC">BBC</option>
+        <option value="Singapore">Singapore</option>
+        <option value="Reuters">Reuters</option>
+        <option value="National Geographic">National Geographic</option>
+      </select>
+    </label>
+  </div>
+
+  {#if loading}
+    <p class="loading">Loading...</p>
+  {:else if feedName !== ''}
+    <h2>{feedName}</h2>
+  {/if}
+
+  {#if articles !== null}
+    {#each articles as article (article.title)}
+      <Article {article} />
+    {/each}
+    <div class="back-to-top-link-container">
+      <a class="back-to-top-link" href="#top">Back to Top</a>
+    </div>
+  {/if}
+
+  <footer>
+    <a target="_blank" href="https://newsapi.org/" rel="noopener noreferrer">
+      Powered by NewsAPI.org
+    </a>
+  </footer>
+</main>
+
 
 <style>
   .container {
@@ -143,46 +185,3 @@
     color: dodgerblue;
   }
 </style>
-
-<header>
-  <h1 id="top">News Feeds</h1>
-</header>
-<main class="container">
-
-  <div class="select-style">
-    <label for="feeds">
-      <select id="feeds" value="Message" on:change={changeFeed}>
-        <option value="Message">Select a Feed</option>
-        <option value="New Zealand">New Zealand</option>
-        <option value="Australia">Australia</option>
-        <option value="UK">UK</option>
-        <option value="USA">USA</option>
-        <option value="BBC">BBC</option>
-        <option value="Singapore">Singapore</option>
-        <option value="Reuters">Reuters</option>
-        <option value="National Geographic">National Geographic</option>
-      </select>
-    </label>
-  </div>
-
-  {#if loading}
-    <p class="loading">Loading...</p>
-  {:else if feedName !== ''}
-    <h2>{feedName}</h2>
-  {/if}
-
-  {#if articles !== null}
-    {#each articles as article (article.title)}
-      <Article {article} />
-    {/each}
-    <div class="back-to-top-link-container">
-      <a class="back-to-top-link" href="#top">Back to Top</a>
-    </div>
-  {/if}
-
-  <footer>
-    <a target="_blank" href="https://newsapi.org/" rel="noopener noreferrer">
-      Powered by NewsAPI.org
-    </a>
-  </footer>
-</main>

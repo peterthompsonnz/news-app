@@ -27,15 +27,17 @@
   .article a:hover {    
     color: dodgerblue;   
     border-bottom-color: dodgerblue; 
-    border-bottom-style: dashed;
+    border-bottom-style: solid;
   }
 </style>
 
 <div class="article">
-  <div>
-    {new Date(article.publishedAt).toLocaleDateString('en-NZ')}: {article.description}{' '}
-    <a href={article.url} target="_blank" rel="noopener noreferrer">
-      Click or tap to read story
-    </a>
-  </div>
+  {#if article.description}
+    <div>
+      {new Date(article.publishedAt).toLocaleDateString('en-NZ')}: {article.description}{' '}
+      <a href={article.url} target="_blank" rel="noopener noreferrer">
+        Click or tap to read story
+      </a>
+    </div>
+  {/if}
 </div>
